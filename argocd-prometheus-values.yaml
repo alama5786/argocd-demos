@@ -1,0 +1,38 @@
+prometheus:
+  prometheusSpec:
+    serviceMonitorNamespaceSelector: {}
+    serviceMonitorSelector:
+      matchLabels:
+        release: kube-prometheus-stack
+    resources:
+      requests:
+        memory: 400Mi
+        cpu: 200m
+      limits:
+        memory: 800Mi
+        cpu: 500m
+    retention: 6h
+
+alertmanager:
+  alertmanagerSpec:
+    resources:
+      requests:
+        memory: 100Mi
+      limits:
+        memory: 200Mi
+
+prometheusOperator:
+  resources:
+    requests:
+      memory: 100Mi
+      cpu: 50m
+    limits:
+      memory: 200Mi
+      cpu: 200m
+
+grafana:
+  resources:
+    requests:
+      memory: 100Mi
+    limits:
+      memory: 200Mi
